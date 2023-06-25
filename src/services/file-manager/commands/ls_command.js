@@ -3,7 +3,7 @@ import { readdir } from "node:fs/promises";
 import CliUtils from "../../../utils/cli_utils.js";
 
 export const lsCommand = {
-  async execute(commandStr, workingDir) {
+  async execute(commandStr) {
     const args = CliUtils.parseArgs(commandStr);
 
     lsCommand.validate(args);

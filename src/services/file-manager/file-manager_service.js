@@ -1,4 +1,4 @@
-import { lsCommand, upCommand } from "./commands/index.js";
+import { lsCommand, upCommand, cdCommand } from "./commands/index.js";
 
 class FileManagerService {
   static _availableCommands = new Map();
@@ -39,5 +39,6 @@ class FileManagerService {
 
 FileManagerService.registerCommand("ls", lsCommand);
 FileManagerService.registerCommand("up", upCommand);
+FileManagerService.registerCommand("cd", cdCommand);
 
 export default FileManagerService;

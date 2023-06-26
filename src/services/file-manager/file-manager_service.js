@@ -21,9 +21,8 @@ class FileManagerService {
     this._availableCommands.set(commandName, commandObject);
   }
 
-  constructor(homeDir, userName) {
+  constructor(homeDir) {
     this.currentWorkingDir = homeDir;
-    this._userName = userName;
   }
 
   /**

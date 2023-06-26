@@ -17,11 +17,16 @@ if (args[0]) {
 }
 console.log(`Welcome to the File Manager, ${userName}!`);
 
-const fileManagerService = new FileManagerService(homeDir, userName);
+const fileManagerService = new FileManagerService(homeDir);
 fileManagerService.printWorkingDir();
 rl.prompt();
 
 rl.on("line", async (input) => {
+  if (input.trim() === ".exit") {
+    console.log(`\nThank you for using File Manager, ${userName}, goodbye!`);
+    process.exit(0);
+  }
+
   try {
     await fileManagerService.executeCommand(input);
   } catch (error) {
@@ -30,4 +35,9 @@ rl.on("line", async (input) => {
 
   fileManagerService.printWorkingDir();
   rl.prompt();
+});
+
+process.on("beforeExit", () => {
+  console.log(`\n\nThank you for using File Manager, ${userName}, goodbye!`);
+  process.exit(0);
 });

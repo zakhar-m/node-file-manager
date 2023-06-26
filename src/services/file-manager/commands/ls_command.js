@@ -19,7 +19,7 @@ export const lsCommand = {
       }))
       .sort((a, b) => {
         if (a.Type === b.Type) {
-          return a.Name < b.Name ? -1 : 1;
+          return a.Name.toLowerCase() < b.Name.toLowerCase() ? -1 : 1;
         } else {
           return a.Type < b.Type ? -1 : 1;
         }

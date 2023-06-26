@@ -19,6 +19,7 @@ console.log(`Welcome to the File Manager, ${userName}!`);
 
 const fileManagerService = new FileManagerService(homeDir, userName);
 fileManagerService.printWorkingDir();
+rl.prompt();
 
 rl.on("line", async (input) => {
   try {
@@ -28,4 +29,5 @@ rl.on("line", async (input) => {
   }
 
   fileManagerService.printWorkingDir();
+  rl.prompt();
 });

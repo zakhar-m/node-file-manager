@@ -1,3 +1,4 @@
+import { access } from "node:fs/promises";
 class CliUtils {
   static parseArgs(commandStr) {
     const parsedCommand = commandStr.match(/[\""].+?[\""]|[^ ]+/g);
@@ -7,6 +8,20 @@ class CliUtils {
       }
       return arg;
     });
+  }
+
+  static async fileOrDirExists(path) {
+    try {
+      await access(path);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  static isValidFileName(fileName) {
+    const reservedChars = /[\<\>\:\"\/\\\|\?\*]/;
+    return !reservedChars.test(fileName);
   }
 }
 

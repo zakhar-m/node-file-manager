@@ -11,6 +11,7 @@ import {
   osCommand,
   hashCommand,
   compressCommand,
+  decompressCommand,
 } from "./commands/index.js";
 
 class FileManagerService {
@@ -62,5 +63,6 @@ FileManagerService.registerCommand("mv", mvCommand);
 FileManagerService.registerCommand("os", osCommand);
 FileManagerService.registerCommand("hash", hashCommand);
 FileManagerService.registerCommand("compress", compressCommand);
+FileManagerService.registerCommand("decompress", decompressCommand);
 
 export default FileManagerService;

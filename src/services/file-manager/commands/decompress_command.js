@@ -2,25 +2,28 @@ import path from "node:path";
 import { lstat } from "node:fs/promises";
 import { createReadStream, createWriteStream } from "node:fs";
 import { pipeline } from "node:stream/promises";
-import { createBrotliCompress } from "node:zlib";
+import { createBrotliDecompress } from "node:zlib";
 
 import CliUtils from "../../../utils/cli_utils.js";
 
-export const compressCommand = {
+export const decompressCommand = {
   async execute(commandStr) {
     const args = CliUtils.parseArgs(commandStr);
 
-    await compressCommand.validate(args, this.currentWorkingDir);
+    await decompressCommand.validate(args, this.currentWorkingDir);
 
     try {
       const filePath = path.resolve(this.currentWorkingDir, args[0]);
-      const compressedFilePath = path.resolve(this.currentWorkingDir, args[1]);
+      const decompressedFilePath = path.resolve(
+        this.currentWorkingDir,
+        args[1]
+      );
 
-      const brotli = createBrotliCompress();
+      const decompressBrotli = createBrotliDecompress();
       const rStream = createReadStream(filePath);
-      const wStream = createWriteStream(compressedFilePath);
+      const wStream = createWriteStream(decompressedFilePath);
 
-      await pipeline(rStream, brotli, wStream);
+      await pipeline(rStream, decompressBrotli, wStream);
     } catch {
       throw new Error("Operation failed");
     }

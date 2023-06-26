@@ -9,3 +9,4 @@ export * from "./cp_command.js";
 export * from "./mv_command.js";
 export * from "./os_command.js";
 export * from "./hash_command.js";
+export * from "./compress_command.js";

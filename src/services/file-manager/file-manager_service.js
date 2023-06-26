@@ -5,6 +5,7 @@ import {
   catCommand,
   addCommand,
   rnCommand,
+  rmCommand,
 } from "./commands/index.js";
 
 class FileManagerService {
@@ -50,5 +51,6 @@ FileManagerService.registerCommand("cd", cdCommand);
 FileManagerService.registerCommand("cat", catCommand);
 FileManagerService.registerCommand("add", addCommand);
 FileManagerService.registerCommand("rn", rnCommand);
+FileManagerService.registerCommand("rm", rmCommand);
 
 export default FileManagerService;

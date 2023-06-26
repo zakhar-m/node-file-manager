@@ -1,18 +1,4 @@
-import {
-  lsCommand,
-  upCommand,
-  cdCommand,
-  catCommand,
-  addCommand,
-  rnCommand,
-  rmCommand,
-  cpCommand,
-  mvCommand,
-  osCommand,
-  hashCommand,
-  compressCommand,
-  decompressCommand,
-} from "./commands/index.js";
+import * as commands from "./commands/index.js";
 
 class FileManagerService {
   static _availableCommands = new Map();
@@ -50,18 +36,18 @@ class FileManagerService {
   }
 }
 
-FileManagerService.registerCommand("ls", lsCommand);
-FileManagerService.registerCommand("up", upCommand);
-FileManagerService.registerCommand("cd", cdCommand);
-FileManagerService.registerCommand("cat", catCommand);
-FileManagerService.registerCommand("add", addCommand);
-FileManagerService.registerCommand("rn", rnCommand);
-FileManagerService.registerCommand("rm", rmCommand);
-FileManagerService.registerCommand("cp", cpCommand);
-FileManagerService.registerCommand("mv", mvCommand);
-FileManagerService.registerCommand("os", osCommand);
-FileManagerService.registerCommand("hash", hashCommand);
-FileManagerService.registerCommand("compress", compressCommand);
-FileManagerService.registerCommand("decompress", decompressCommand);
+FileManagerService.registerCommand("ls", commands.lsCommand);
+FileManagerService.registerCommand("up", commands.upCommand);
+FileManagerService.registerCommand("cd", commands.cdCommand);
+FileManagerService.registerCommand("cat", commands.catCommand);
+FileManagerService.registerCommand("add", commands.addCommand);
+FileManagerService.registerCommand("rn", commands.rnCommand);
+FileManagerService.registerCommand("rm", commands.rmCommand);
+FileManagerService.registerCommand("cp", commands.cpCommand);
+FileManagerService.registerCommand("mv", commands.mvCommand);
+FileManagerService.registerCommand("os", commands.osCommand);
+FileManagerService.registerCommand("hash", commands.hashCommand);
+FileManagerService.registerCommand("compress", commands.compressCommand);
+FileManagerService.registerCommand("decompress", commands.decompressCommand);
 
 export default FileManagerService;

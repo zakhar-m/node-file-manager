@@ -1,4 +1,3 @@
-import path from "node:path";
 import os from "node:os";
 
 import CliUtils from "../../../utils/cli_utils.js";

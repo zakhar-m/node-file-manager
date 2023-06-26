@@ -7,3 +7,4 @@ export * from "./rn_command.js";
 export * from "./rm_command.js";
 export * from "./cp_command.js";
 export * from "./mv_command.js";
+export * from "./os_command.js";
